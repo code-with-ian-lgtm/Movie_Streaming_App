@@ -11,23 +11,30 @@ class SettingsPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        title: Text("Settings"),
+        title: const Text("Settings"),
       ),
       body: Column(
         children: [
-          ListView(
-            children: [
-              ListTile(
-                title: Text("DarkMode"),
-                leading: Icon(Icons.dark_mode),
-                trailing: Consumer<ThemeProvider>(builder: ((context,ThemeProvider,value){
-                  return CupertinoSwitch(value: ThemeProvider.isDarkMode, onChanged: (bool value){
-                    ThemeProvider.toggleTheme();
-                  });
-                }),
-              ))
-            ],
-          )
+          Expanded( // Add Expanded here
+            child: ListView(
+              children: [
+                ListTile(
+                  title: const Text("DarkMode"),
+                  leading: const Icon(Icons.dark_mode),
+                  trailing: Consumer<ThemeProvider>(
+                    builder: (context, themeProvider, child) {
+                      return CupertinoSwitch(
+                        value: themeProvider.isDarkMode, // Access the value correctly
+                        onChanged: (bool value) {
+                          themeProvider.toggleTheme(); // Call the toggle method
+                        },
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

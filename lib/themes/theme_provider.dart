@@ -6,9 +6,9 @@ class ThemeProvider with ChangeNotifier{
   //set initial theme
   ThemeData _themeData = lightMode;
 
-  ThemeProvider(){
-    setInitialTheme();
-  }
+  // ThemeProvider(){
+  //   setInitialTheme();
+  // }
 
   //getter theme
   ThemeData get themeData => _themeData;
@@ -34,6 +34,7 @@ class ThemeProvider with ChangeNotifier{
   //method to set initial theme
 
   void setInitialTheme(){
+    // ignore: deprecated_member_use
     final brightness = WidgetsBinding.instance.window.platformBrightness;
 
     if(brightness == Brightness.light){
