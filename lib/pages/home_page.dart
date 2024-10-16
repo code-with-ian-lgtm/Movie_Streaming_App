@@ -36,30 +36,46 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        onPageChanged: _onPageChanged,
-        children: _pages,
-        physics: BouncingScrollPhysics(),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Favorites'),
-          BottomNavigationBarItem(icon: Icon(Icons.category), label: 'Categories'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-        ],
-      ),
-    );
-  }
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    body: PageView(
+      controller: _pageController,
+      onPageChanged: _onPageChanged,
+      children: _pages,
+      physics: BouncingScrollPhysics(),
+    ),
+    bottomNavigationBar: BottomNavigationBar(
+      currentIndex: _selectedIndex,
+      onTap: _onItemTapped,
+      items: [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.favorite),
+          label: 'Favorites',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.category),
+          label: 'Categories',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person),
+          label: 'Profile',
+        ),
+      ],
+      selectedItemColor: Theme.of(context).colorScheme.primary, 
+      unselectedItemColor: Theme.of(context).colorScheme.inversePrimary, 
+      backgroundColor: Theme.of(context).colorScheme.tertiary, 
+      elevation: 8, 
+    ),
+  );
 }
 
-// Use the existing HomePage implementation
+}
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
