@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/pages/favourites.dart';
 import 'package:movie_app/pages/movie_category.dart';
+import 'package:movie_app/pages/profile_page.dart';
 import 'package:movie_app/pages/settings_page.dart';
 import 'package:movie_app/pages/top_pics_row.dart';
 import 'package:movie_app/pages/trending_now_row.dart';
@@ -105,9 +106,4 @@ class HomePage extends StatelessWidget {
 
 
 
-class ProfilePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Text('Profile Page'));
-  }
-}
+
