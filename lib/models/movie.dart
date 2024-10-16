@@ -30,7 +30,7 @@ final List<Movie> _movies = [
   rating: 8.3,
   releaseDate: DateTime(2017, 5, 2),
   duration: 270, 
-  trailerUrl: "lib/Assets/trailers/power.mp4",
+  trailerUrl: "lib/Assets/trailers/lacasa.mp4",
   language: "Spanish",
   country: "Spain",
 ),
