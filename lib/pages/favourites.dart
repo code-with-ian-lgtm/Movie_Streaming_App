@@ -1,32 +1,45 @@
 import 'package:flutter/material.dart';
 
-class FavoritesPage extends StatelessWidget {
+class FavoritesPage extends StatefulWidget {
+  @override
+  _FavoritesPageState createState() => _FavoritesPageState();
+}
+
+class _FavoritesPageState extends State<FavoritesPage> {
+  List<Map<String, String>> favoriteMovies = [
+    {
+      'title': 'Money Heist',
+      'image': 'lib/Assets/movie_posters/lacasa de papel.jpeg',
+      'rating': '8.8'
+    },
+    {
+      'title': 'Power',
+      'image': 'lib/Assets/movie_posters/power.jpeg',
+      'rating': '9.0'
+    },
+    {
+      'title': 'Prison Break',
+      'image': 'lib/Assets/movie_posters/Prison Break.jpeg',
+      'rating': '8.6'
+    },
+    {
+      'title': 'Fight Club',
+      'image': 'lib/Assets/movie_posters/Fight club.jpeg',
+      'rating': '8.8'
+    },
+  ];
+
+  void removeMovie(int index) {
+    setState(() {
+      favoriteMovies.removeAt(index);
+    });
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Movie removed from favorites')),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    // Hardcoded list of favorite movies with local assets
-    final List<Map<String, String>> favoriteMovies = [
-      {
-        'title': 'Inception',
-        'image': 'lib/Assets/movie_posters/lacasa de papel.jpeg',
-        'rating': '8.8'
-      },
-      {
-        'title': 'The Dark Knight',
-        'image': 'lib/Assets/movie_posters/lacasa de papel.jpeg',
-        'rating': '9.0'
-      },
-      {
-        'title': 'Interstellar',
-        'image': 'lib/Assets/movie_posters/lacasa de papel.jpeg',
-        'rating': '8.6'
-      },
-      {
-        'title': 'Fight Club',
-        'image': 'lib/Assets/movie_posters/lacasa de papel.jpeg',
-        'rating': '8.8'
-      },
-    ];
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Favorites'),
@@ -36,10 +49,10 @@ class FavoritesPage extends StatelessWidget {
         child: GridView.builder(
           itemCount: favoriteMovies.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, 
-            crossAxisSpacing: 10, 
-            mainAxisSpacing: 10, 
-            childAspectRatio: 0.7, 
+            crossAxisCount: 2,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            childAspectRatio: 0.7,
           ),
           itemBuilder: (context, index) {
             final movie = favoriteMovies[index];
@@ -107,9 +120,7 @@ class FavoritesPage extends StatelessWidget {
                   right: 10,
                   child: GestureDetector(
                     onTap: () {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('${movie['title']} removed from favorites')),
-                      );
+                      removeMovie(index);
                     },
                     child: Container(
                       padding: const EdgeInsets.all(6),

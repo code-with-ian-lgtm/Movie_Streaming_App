@@ -332,7 +332,34 @@ Movie(
   ),
 ];
 
+final List<Movie> _favorites = [];
+
 //Getters
  List<Movie> get movies => _movies;
+ List<Movie> get favourites => _favorites;
+
+
+   // Method to add a movie to favorites
+  void addToFavorites(Movie movie) {
+    if (!_favorites.contains(movie)) {
+      _favorites.add(movie);
+      notifyListeners(); // Notify listeners to update the UI
+    }
+  }
+
+  // Method to add or remove a movie from the favorites
+  void toggleFavorite(Movie movie) {
+    if (_favorites.contains(movie)) {
+      _favorites.remove(movie); 
+    } else {
+      _favorites.add(movie); 
+    }
+    notifyListeners(); 
+  }
+
+  // Method to check if a movie is a favorite
+  bool isFavorite(Movie movie) {
+    return _favorites.contains(movie);
+  }
 
 }
