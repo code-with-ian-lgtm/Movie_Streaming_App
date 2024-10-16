@@ -206,7 +206,7 @@ Movie(
   ),
   Movie(
     movieName: "Fight Club",
-    posterUrl: "lib/Assets/movie_posters/Fight Club.jpeg",
+    posterUrl: "lib/Assets/movie_posters/Fight club.jpeg",
     director: "David Fincher",
     description: "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into something much more.",
     cast: ["Brad Pitt", "Edward Norton", "Helena Bonham Carter"],
@@ -337,6 +337,11 @@ final List<Movie> _favorites = [];
 //Getters
  List<Movie> get movies => _movies;
  List<Movie> get favourites => _favorites;
+  List<MovieCategory> get categories => MovieCategory.values;
+
+  List<Movie> getMoviesByCategory(MovieCategory category) {
+    return _movies.where((movie) => movie.category == category).toList();
+  }
 
 
    // Method to add a movie to favorites

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/pages/favourites.dart';
+import 'package:movie_app/pages/movie_category.dart';
 import 'package:movie_app/pages/settings_page.dart';
 import 'package:movie_app/pages/top_pics_row.dart';
 import 'package:movie_app/pages/trending_now_row.dart';
@@ -17,7 +18,7 @@ class _MainPageState extends State<MainPage> {
   final List<Widget> _pages = [
     HomePage(), 
     FavoritesPage(),
-    CategoriesPage(),
+    MovieCategoryPage(),
     ProfilePage(),
   ];
 
@@ -103,12 +104,6 @@ class HomePage extends StatelessWidget {
 
 
 
-class CategoriesPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Text('Categories Page'));
-  }
-}
 
 class ProfilePage extends StatelessWidget {
   @override
